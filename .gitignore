@@ -1,0 +1,69 @@
+# --- Global Ignored Files ---
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# --- IDE Specific ---
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# --- Frontend (Next.js) ---
+/front/node_modules
+/front/.DS_Store
+/front/.next
+/front/dist
+/front/dist-ssr
+/front/coverage
+/front/*.local
+
+# Keep VSCode settings file for sharing with team
+/front/.vscode/*
+!/front/.vscode/extensions.json
+
+# --- Backend (Laravel) ---
+/back/node_modules
+/back/public/build
+/back/public/hot
+/back/public/storage
+/back/storage/*.key
+/back/vendor
+/back/.env
+/back/.env.backup
+/back/.env.production
+/back/.phpunit.result.cache
+/back/Homestead.json
+/back/Homestead.yaml
+/back/auth.json
+
+# Debug and log files
+/back/npm-debug.log
+/back/yarn-error.log
+/back/.fleet
+
+# --- Framework Specific ---
+# Laravel
+/back/bootstrap/cache/*
+!/back/bootstrap/cache/.gitignore
+/back/storage/logs/*
+!/back/storage/logs/.gitignore
+/back/storage/framework/cache/*
+!/back/storage/framework/cache/.gitignore
+/back/storage/framework/sessions/*
+!/back/storage/framework/sessions/.gitignore
+/back/storage/framework/views/*
+!/back/storage/framework/views/.gitignore
+/back/storage/app/public/*
+!/back/storage/app/public/.gitignore
+
+# Next.js
+/front/out/
