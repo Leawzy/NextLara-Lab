@@ -17,7 +17,7 @@ services:
   frontend:
     build:
       context: ./front
-      dockerfile: _docker/app/Dockerfile
+      dockerfile: _docker/frontend/Dockerfile
     container_name: frontend
     networks:
       - app-network
@@ -29,7 +29,7 @@ services:
   backend:
     build:
       context: ./back
-      dockerfile: _docker/app/Dockerfile
+      dockerfile: _docker/backend/Dockerfile
     container_name: backend
     networks:
       - app-network
