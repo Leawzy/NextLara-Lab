@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - app-network
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+
+  frontend:
+    build:
+      context: ./front/_docker/frontend
+    container_name: frontend
+    networks:
+      - app-network
+    depends_on:
+      - db
+    volumes:
+      - ./front:/app
+
+  backend:
+    build:
+      context: ./back/_docker/backend
+    container_name: backend
+    networks:
+      - app-network
+    depends_on:
+      - db
+    volumes:
+      - ./back:/var/www
+
+  db:
+    image: mysql:8.0
+    container_name: db
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    networks:
+      - app-network
+    volumes:
+      - db_data:/var/lib/mysql
+
+networks:
+  app-network:
+
+volumes:
+  db_data:
